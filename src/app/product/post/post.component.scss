@@ -1,0 +1,10 @@
+:host {
+  .post {
+    border: 1px solid gray;
+    border-radius: 5px;
+    .header {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+}

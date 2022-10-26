@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+nav {
+  background-color: black;
+  height: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
