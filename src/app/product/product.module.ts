@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { PostComponent } from './post/post.component';
+import { ServicesComponent } from './services/services.component';
 
 
 @NgModule({
   declarations: [
-    PostComponent
+    PostComponent,
+    ServicesComponent
   ],
   imports: [
     CommonModule,

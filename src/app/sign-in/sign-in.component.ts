@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormUserSignIn } from '../store/models/formUserSignIn.model';
+import { UserService } from '../store/services/user.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor() { }
+  formUserSignIn = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
+  })
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+  }
+
+  signIn() {
+    if (this.formUserSignIn.valid) {
+      this.userService.signIn(this.formUserSignIn.value as FormUserSignIn)
+    }
   }
 
 }

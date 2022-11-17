@@ -1,10 +1,23 @@
 :host {
   .post {
-    border: 1px solid gray;
-    border-radius: 5px;
-    .header {
-      font-weight: bold;
-      font-size: 18px;
+    width: 335px;
+    font-size: 14px;
+    display: block;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    &-image> img {
+      width: 335px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    &-title {
+      margin-top: 20px;
+      line-height: 24px;
+    }
+    small {
+      color: #AAAAAA;
+      line-height: 18px;
     }
   }
 }

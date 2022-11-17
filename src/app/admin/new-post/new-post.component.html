@@ -1,22 +1,60 @@
-<h1 class="mt-5">
-  Create new post
-</h1>
-<div>
-  <label> Title: </label>
-  <input class="w-100" title="title" type="text" />
-</div>
+<h1 class="mt-5">Create new post</h1>
 <div class="my-3">
-  <label>Tags</label>
-  <select class="w-100" title="tags">
-    <option>Select...</option>
-    <option>CTF Write Up</option>
-    <option>Network</option>
-  </select>
+  <label
+    nz-checkbox
+    [(ngModel)]="allChecked"
+    (ngModelChange)="updateAllChecked()"
+    [nzIndeterminate]="indeterminate"
+  >
+    Check all
+  </label>
+  <nz-checkbox-group
+    [(ngModel)]="checkOptionsOne"
+    (ngModelChange)="updateSingleChecked()"
+  ></nz-checkbox-group>
 </div>
-<div>
-  <label>Content</label>
-  <textarea title="content" class="w-100"> </textarea>
+<div [formGroup]="newPost">
+  <div>
+    <label> Title: </label>
+    <input class="w-100" title="title" type="text" formControlName="title" />
+  </div>
+  <div>
+    <label>Content</label>
+    <textarea title="content" class="w-100" formControlName="content">
+    </textarea>
+  </div>
+  <div class="my-3">
+    <nz-upload
+      nzListType="picture-card"
+      [(nzFileList)]="fileList"
+      [nzShowButton]="fileList.length < 8"
+      [nzPreview]="handlePreview"
+    >
+      <div>
+        <span nz-icon nzType="plus"></span>
+        <div style="margin-top: 8px">Upload</div>
+      </div>
+    </nz-upload>
+    <nz-modal
+      [nzVisible]="previewVisible"
+      [nzContent]="modalContent"
+      [nzFooter]="null"
+      (nzOnCancel)="previewVisible = false"
+    >
+      <ng-template #modalContent>
+        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+      </ng-template>
+    </nz-modal>
+  </div>
+  <div>
+    <button class="w-100 mt-3" (click)="post()">Post</button>
+  </div>
 </div>
-<div>
-  <button class="w-100 mt-3">Post</button>
-</div>
+<nz-alert
+  id="popup-alert"
+  *ngFor="let status of statusPost"
+  [nzType]="status === 'success' ? 'success' : 'warning'"
+  [nzMessage]="status === 'success' ? 'Post Success' : 'Ops'"
+  [nzDescription]="status === 'success' ? 'You can back to home to see newest update':'Check again before post.'"
+  nzShowIcon
+></nz-alert>

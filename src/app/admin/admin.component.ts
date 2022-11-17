@@ -14,9 +14,9 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // if (!isValidSession()) {
-    //   this.router.navigate(['/sign-in'])
-    // }
+    if (!isValidSession()) {
+      this.router.navigate(['/sign-in'])
+    }
   }
 
 

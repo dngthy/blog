@@ -1,0 +1,29 @@
+<div class="categories">
+  <div class="header-title">Categories</div>
+  <div>
+    <div
+      class="my-3"
+      *ngFor="let tag of tags; let i = index"
+      (click)="filterByTags(i)"
+    >
+      <label class="container"
+        >{{ tag }}
+        <input type="checkbox" [value]="tag" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+</div>
+<div class="posts">
+  <div class="my-5 d-flex flex-wrap justify-content-center">
+    <app-post *ngFor="let post of posts" [postDetail]="post"></app-post>
+  </div>
+  <nz-pagination
+    [nzPageIndex]="page"
+    [nzTotal]="500"
+    [nzResponsive]="true"
+    (nzPageIndexChange)="pageChangeEvent($event)"
+    nzShowQuickJumper
+  >
+  </nz-pagination>
+</div>

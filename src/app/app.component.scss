@@ -1,0 +1,46 @@
+:host {
+  .main-container {
+    height: 100vh;
+    &>div {
+      overflow-y: auto;
+      height: 100vh;
+      color: #FAFAFA;
+    }
+  }
+  .app-menu {
+    &>div {
+      margin: 2rem 0.25rem;
+      padding: 5px 0;
+      cursor: pointer;
+      text-align: center;
+      transition: 0.7s;
+      &:hover {
+        background: rgba(128, 128, 128, 0.451);
+        border-radius: 5px;
+        transition: 0.7s;
+      }
+    }
+  }
+  .main-site {
+    background: #202020;
+    width: 100%;
+    min-width: 600px;
+  }
+  .sidebar {
+    width: 400px;
+    background: #101010;
+    cursor: pointer;
+    .user {
+      background: rgba(128, 128, 128, 0.451);
+      border-radius: 5px;
+      transition: 0.5s;
+      &-name {
+        margin-left: 10px;
+      }
+      &:hover {
+        opacity: 0.7;
+        transition: 0.5s;
+      }
+    }
+  }
+}

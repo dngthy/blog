@@ -4,14 +4,39 @@
 @import '~bootstrap/scss/bootstrap';
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
 nav {
   background-color: black;
-  height: 50px;
+  height: 100vh;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
+  width: 60px;
 }
 
 .dropdown-toggle::after {
   display: none;
 }
+
+.header-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #F665A0;
+}
+
+.btn {
+  border-radius: 30px !important;
+  border: 1px solid #F665A0;
+  color: #F665A0;
+  &:hover {
+    background: #F665A0;
+    color: white;
+
+  }
+  &-group {
+    gap: 20px;
+  }
+}
+
