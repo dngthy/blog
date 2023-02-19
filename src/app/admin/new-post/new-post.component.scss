@@ -1,4 +1,10 @@
 :host {
+  display: flex;
+  .form-post {
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+  }
   .categories {
     width: 250px;
     float: left;
@@ -89,7 +95,6 @@
     font-weight: 400;
   }
   input {
-    width: 58vw;
     margin-right: 10px;
   }
   textarea {
@@ -111,5 +116,8 @@
     font-size: 14px;
     line-height: 16px;
     color: #ff7b7b;
+  }
+  .btn {
+    width:25%;
   }
 }
