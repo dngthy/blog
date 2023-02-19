@@ -1,5 +1,30 @@
 :host {
   .wrap {
-    margin: 40vh 35vw;
+    display: block;
+    margin: 10vh 20vw;
+    max-width: 363px;
+    & > input {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+    &-title {
+      color: white;
+      font-weight: bold;
+    }
+    &-description {
+      color: gray;
+    }
+  }
+  .link {
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      color: #F665A0;
+    }
+  }
+  svg {
+    top: 0;
+    position: absolute;
+    height: 100vh;
   }
 }

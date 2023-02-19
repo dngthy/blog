@@ -1,12 +1,16 @@
-<div class="wrap">
-  <div class="w-50">
-    <input class="w-100"  type="text" placeholder="Enter username">
-    <input class="w-100 my-3"  type="password" placeholder="Enter password">
-    <input class="w-100 my-3"  type="password" placeholder="Enter confirm password">
-    <input class="w-100 my-3"  type="email" placeholder="Enter email">
-    <div class="mb-3" [routerLink]="['/sign-in']">Already has an account?</div>
-    <button class="w-100" type="submit">
-      Sign up
-    </button>
+<div class="w-25 wrap" [formGroup]="formUserSignUp">
+  <h3 class="wrap-title">Start your journey with us.</h3>
+  <small class="wrap-description">Discover the world's best community of developers and hackers</small>
+  <input formControlName="username" class="mt-3" type="text" placeholder="Enter username" />
+  <input formControlName="password" type="password" placeholder="Enter password" />
+  <input
+    formControlName="confirmPassword"
+    type="password"
+    placeholder="Enter confirm password"
+  />
+  <input formControlName="email" type="email" placeholder="Enter email" (keyup.enter)="signUp()" />
+  <div class="link mb-3" [routerLink]="['/sign-in']">
+    Already has an account?
   </div>
+  <div class="w-100 btn" type="submit" (click)="signUp()" (keyup.enter)="signUp()">Sign up</div>
 </div>

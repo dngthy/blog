@@ -1,14 +1,12 @@
 <div class="post">
   <div class="post-image">
-    <img src="https://media.istockphoto.com/id/1047259374/photo/programming-source-code-abstract-background.jpg?s=612x612&w=0&k=20&c=07DAFiujCb58Zgu5ZArLprHiSKew5pCGqbTnop9GclA=" alt="Love this post"/>
+    <img [src]="imageURL" alt="Love this post"/>
   </div>
-  <div class="post-title"><b>{{ postDetail.title }}</b></div>
-  <small>{{ contentDecode }}</small>
+  <b class="post-title truncate">{{ target }}</b>
+  <small class="truncate">{{ description }}</small>
   <br/>
-  <small>{{ postDetail.createAt }}</small>
+  <small>{{ time }}</small>
   <div class="footer d-flex gap-5 mt-3">
-    <i class="bi bi-heart"></i>
-    <i class="bi bi-chat"></i>
     <i class="bi bi-share"></i>
   </div>
 </div>

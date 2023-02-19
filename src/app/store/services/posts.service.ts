@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-const POSTS_SERVICE_URL = 'http://localhost:5000/posts/'
+import { environment } from 'src/environments/environment';
+const POSTS_SERVICE_URL = environment.POSTS_SERVICE_URL
 @Injectable({
   providedIn: 'root'
 })

@@ -1,0 +1,53 @@
+:host {
+  .wrap {
+    background-image: url("https://www.hahwul.com/images/hahwul_pc.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .navbar > ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  .navbar > ul li {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .navbar > ul li div {
+    width: 120px;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+    position: relative;
+  }
+  .navbar > ul li div::before {
+    background: #fff none repeat scroll 0 0;
+    bottom: -2px;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    transition: 0.5s;
+  }
+  .navbar > ul li div:hover::before {
+    width: 100%;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 21px;
+  }
+  .big-logo {
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20vh;
+  }
+  .small-logo {
+    font-size: 23px;
+    font-weight: 50;
+    text-align: center;
+  }
+}

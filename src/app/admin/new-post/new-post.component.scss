@@ -1,26 +1,115 @@
-#popup-alert {
-  -moz-animation: cssAnimation 0s ease-in 2s forwards;
-  /* Firefox */
-  -webkit-animation: cssAnimation 0s ease-in 2s forwards;
-  /* Safari and Chrome */
-  -o-animation: cssAnimation 0s ease-in 2s forwards;
-  /* Opera */
-  animation: cssAnimation 0s ease-in 2s forwards;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-@keyframes cssAnimation {
-  to {
-      width:0;
-      height:0;
-      overflow:hidden;
+:host {
+  .categories {
+    width: 250px;
+    float: left;
+    background: #101010;
+    margin-right: 20px;
+    height: 100vh;
+    padding-left: 20px;
+    .header-title {
+      margin-top: 2rem;
+    }
   }
-}
-@-webkit-keyframes cssAnimation {
-  to {
-      width:0;
-      height:0;
-      visibility:hidden;
-      opacity:0
+  .posts {
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.749);
+    border-radius: 5px;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: transparent;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #f665a0;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+  input {
+    width: 58vw;
+    margin-right: 10px;
+  }
+  textarea {
+    height: 220px;
+    width: 60vw;
+    background: #101010;
+    border: 1px dashed #808080;
+    border-radius: 15px;
+    padding: 0 10px;
+    &::placeholder {
+      color: #bbbbbb;
+      font-size: 16px;
+      line-height: 19px;
+      left: 7px;
+    }
+  }
+  small {
+    color: red;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ff7b7b;
   }
 }

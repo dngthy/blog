@@ -1,0 +1,29 @@
+input {
+  width: 363px;
+  height: 40px;
+  background: #202020;
+  border: none;
+  border-bottom: 1px solid #FAFAFA;
+  background: #101010 !important;
+  border-radius: 3px;
+  padding: 0 10px;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  &:hover,
+  &:focus-visible {
+    transition: 0.5s;
+    border: none;
+    border-bottom: 1px solid #f665a0;
+    outline: 0;
+  }
+}
+textarea {
+  &:hover,
+  &:focus-visible {
+    transition: 0.5s;
+    border: none;
+    border-bottom: 1px solid #f665a0;
+    outline: 0;
+  }
+}

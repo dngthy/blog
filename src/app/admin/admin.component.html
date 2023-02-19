@@ -1,14 +1,1 @@
-<nav class="d-flex flex-column">
-  <div [routerLink]="['/app']" routerLinkActive="router-link-active" >
-    CYBER-S
-  </div>
-  <div class="d-flex gap-5">
-    <div><i class="bi bi-search"></i></div>
-    <div [routerLink]="['/app']" routerLinkActive="router-link-active" >Home</div>
-    <div [routerLink]="['/new-post']" routerLinkActive="router-link-active" >New Post</div>
-    <div [routerLink]="['/admin-pr']" routerLinkActive="router-link-active" >Profile</div>
-  </div>
-</nav>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

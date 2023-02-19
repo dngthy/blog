@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
 import { FormUserSignIn } from '../models/formUserSignIn.model';
 import { FormUserSignUp } from '../models/formUserSignUp.model';
 import { User } from '../models/users.model';
+import { environment } from 'src/environments/environment';
 
-const AUTH_URL = 'https://auth-dngthy.herokuapp.com/auth/'
+const AUTH_URL = environment.AUTH_URL;
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +17,7 @@ export class UserService {
   user$: Observable<User>;
   constructor(
     private http: HttpClient,
-    private store: Store<{users: User}>
+    private store: Store<{users: User}>,
     ) {
       this.user$ = store.select('users')
      }
@@ -36,12 +37,12 @@ export class UserService {
   signUp(data: FormUserSignUp) {
     this.store.dispatch(userSignUp(data))
   }
-  
-  signInSuccess(data: User) {
-    this.store.dispatch(loadUserSuccess(data))
-  }
 
   logOut() {
     this.store.dispatch(userLogOut())
+  }
+
+  getUser() {
+    return this.user$
   }
 }

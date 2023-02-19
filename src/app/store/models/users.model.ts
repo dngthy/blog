@@ -21,5 +21,6 @@ export interface User {
   };
   gender: string;
   quotes: string;
-  birthday: string
+  birthday: string;
+  accessToken: string;
 }

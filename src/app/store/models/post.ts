@@ -1,9 +1,9 @@
-import { NzUploadFile } from "ng-zorro-antd/upload";
-
 export interface Post {
   title: string;
-  content: string;
-  attachments: NzUploadFile[],
-  tags: String[],
+  imageURL: string;
+  description: string;
+  request: string;
+  response: string;
+  tags: String[];
   createAt: String
 }

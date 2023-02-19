@@ -3,6 +3,8 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "/src/app/utils/scss/input.scss";
+@import "/src/app/utils/scss/truncate.scss";
 
 * {
   margin: 0;
@@ -38,5 +40,48 @@ nav {
   &-group {
     gap: 20px;
   }
+  &-close {
+    background: #ffffff8f url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  }
 }
 
+.ant-pagination-item {
+  background: transparent !important;
+  border-radius: 50%;
+  color: white;
+  &-active, &-link {
+    background: #F665A0 !important;
+    border: 1px solid #F665A0 !important;
+    border-radius: 50% !important;
+  }
+  &:hover, &-link:hover {
+    border: 1px solid #F665A0 !important;
+  }
+}
+
+nz-pagination {
+  color: white !important;
+  &> ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+.anticon {
+  color: white;
+}
+
+nz-alert {
+  position: absolute;
+  bottom: 2rem;
+  left: 40vw;
+  width: 20vw;
+}
+
+.offcanvas.showing, .offcanvas.show:not(.hiding) {
+  width: 75vw;
+  background: #101010c4;
+  h4 {
+    color: white;
+  }
+}

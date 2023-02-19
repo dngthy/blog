@@ -13,6 +13,10 @@ export const loadUserSuccess = createAction(
   props<User>()
 )
 
+export const loadUserFailure = createAction(
+  '[User] Load Current User Unsuccessful',
+)
+
 export const userSignIn = createAction(
   USER_SIGN_IN,
   props<FormUserSignIn>()

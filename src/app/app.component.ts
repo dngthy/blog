@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from './store/models/users.model';
+import { UserService } from './store/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'blog';
+  user!: User;
+  constructor(private userService: UserService) {}
+  ngOnInit() {
+    this.userService.getUser().subscribe(data => {
+      this.user = data;
+    })
+  }
 }

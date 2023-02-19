@@ -3,12 +3,15 @@
   <div>
     <div
       class="my-3"
-      *ngFor="let tag of tags; let i = index"
-      (click)="filterByTags(i)"
+      *ngFor="let tag of tags"
     >
-      <label class="container"
-        >{{ tag }}
-        <input type="checkbox" [value]="tag" />
+      <label class="container">{{ tag }}
+        <input
+        type="checkbox"
+        [value]="tag"
+        [checked]="chosenTags.indexOf(tag)>=0"
+        (click)="filterByTags(tag)"
+        />
         <span class="checkmark"></span>
       </label>
     </div>
@@ -16,14 +19,74 @@
 </div>
 <div class="posts">
   <div class="my-5 d-flex flex-wrap justify-content-center">
-    <app-post *ngFor="let post of posts" [postDetail]="post"></app-post>
+    <app-post *ngFor="let post of posts" [postDetail]="post" (click)="open(content,post)"></app-post>
   </div>
   <nz-pagination
+    class="my-3 mx-5"
     [nzPageIndex]="page"
-    [nzTotal]="500"
+    [nzTotal]="100"
     [nzResponsive]="true"
     (nzPageIndexChange)="pageChangeEvent($event)"
-    nzShowQuickJumper
   >
   </nz-pagination>
 </div>
+<ng-template #content let-offcanvas>
+	<div class="offcanvas-header">
+		<h4 class="offcanvas-title" id="offcanvas-basic-title">Vulnerable detail </h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+	</div>
+  <div class="offcanvas-body">
+    <!--[ Code Box Target]-->
+      <div class='K2_CBox'>
+        <div class='CB_Heading'>
+          <span>Target</span>
+          <button id='target' class='C_box_main' onclick="copyC('target','target_content')">
+            <i class='CBox_icn'></i>
+          </button>
+        </div>
+        <div id='target_content'>
+          <pre>{{ postDetail.title }}</pre>
+        </div>
+      </div>
+      <!--[ Code Box ]-->
+      <!--[ Code Box Description ]-->
+      <div class='K2_CBox'>
+        <div class='CB_Heading'>
+          <span>Description</span>
+          <button id='description' class='C_box_main' onclick="copyC('description','description_content')">
+            <i class='CBox_icn'></i>
+          </button>
+        </div>
+        <div id='description_content'>
+          <pre>{{ postDetail.description }}</pre>
+        </div>
+      </div>
+      <!--[ Code Box ]-->
+      <!--[ Code Box Request ]-->
+      <div class='K2_CBox'>
+        <div class='CB_Heading'>
+          <span>Request</span>
+          <button id='request' class='C_box_main' onclick="copyC('request','request_content')">
+            <i class='CBox_icn'></i>
+          </button>
+        </div>
+        <div id='request_content'>
+          <pre>{{ postDetail.request }}</pre>
+        </div>
+      </div>
+      <!--[ Code Box ]-->
+      <!--[ Code Box Response]-->
+      <div class='K2_CBox'>
+        <div class='CB_Heading'>
+          <span>Response</span>
+          <button id='response' class='C_box_main' onclick="copyC('response','response_content')">
+            <i class='CBox_icn'></i>
+          </button>
+        </div>
+        <div id='response_content'>
+          <pre>{{ postDetail.response }}</pre>
+        </div>
+      </div>
+      <!--[ Code Box ]-->
+</div>
+</ng-template>

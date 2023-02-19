@@ -1,9 +1,17 @@
-<div class="wrap">
-  <div class="w-50" [formGroup]="formUserSignIn">
-    <input class="w-100"  type="text" placeholder="Enter username" formControlName="username">
-    <input class="w-100 my-3"  type="password" placeholder="Enter password" formControlName="password">
-    <button class="w-100" type="submit" (click)="signIn()">
-      Sign in
-    </button>
-  </div>
+<div class="wrap" [formGroup]="formUserSignIn">
+  <h3 class="wrap-title">Welcome back.</h3>
+  <small class="wrap-description">We miss you so much.</small>
+  <input
+    class="mt-3"
+    type="text"
+    placeholder="Enter username"
+    formControlName="username"
+  />
+  <input
+    type="password"
+    placeholder="Enter password"
+    formControlName="password"
+    (keyup.enter)="signIn()"
+  />
+  <div class="w-100 btn" type="submit" (click)="signIn()" (keyup.enter)="signIn()">Sign in</div>
 </div>
